@@ -1,13 +1,14 @@
-package com.bileter.bilterapi.Controller;
+package com.bileter.bilterapi.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class Controller {
+public class RestService {
 
     @Autowired
     public void Main()
