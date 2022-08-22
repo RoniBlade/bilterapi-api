@@ -1,8 +1,5 @@
 package com.bileter.bilterapi.service;
 
-import io.codejournal.maven.swagger2java.model.DataOfBuildings;
-import io.codejournal.maven.swagger2java.model.DataOfBuildingsAnsw;
-import io.codejournal.maven.swagger2java.model.Params;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
