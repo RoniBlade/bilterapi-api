@@ -1,6 +1,9 @@
 package com.bileter.bilterapi.reponce;
 
 import com.bileter.bilterapi.bd.Storage;
+import com.bileter.bilterapi.service.SchangesShowController;
+import io.codejournal.maven.swagger2java.model.DataOfBuildings;
+import io.codejournal.maven.swagger2java.model.DataOfBuildingsAnsw;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,14 +20,22 @@ public class SendToBiliterUtil {
 
         String resourceUrl = "https://api.bileter.ru/ekp";
 
-        ResponseEntity<String> response
-                = restTemplate.postForEntity(resourceUrl, str, String.class);
+        SchangesShowController schangesShowController = new SchangesShowController();
 
-         String answ = response.getBody();
+        ResponseEntity<DataOfBuildingsAnsw> response
+                = restTemplate.postForEntity(resourceUrl,
+                schangesShowController.ChangesShow(),
+                DataOfBuildingsAnsw.class);
+
+         //String answ = response.getBody();
+
+        DataOfBuildingsAnsw dataOfBuildingsAnsw = new DataOfBuildingsAnsw();
+
+        dataOfBuildingsAnsw = response.getBody();
 
          Storage storage = new Storage();
 
-         storage.add(answ);
+         storage.add(dataOfBuildingsAnsw);
 
 
 
